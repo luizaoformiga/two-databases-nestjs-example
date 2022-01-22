@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+
 import { CreateApp } from './app.create';
 import { App } from './app.entity';
 import { AppRepository } from './app.repository';
@@ -16,7 +16,7 @@ export class AppService {
     return this.appRepository.findApp();
   }
 
-  async postHello(data: any): Promise<App> {
+  async postHello(data: CreateApp): Promise<App> {
     return this.appRepository.createApp(data);
   }
 }
